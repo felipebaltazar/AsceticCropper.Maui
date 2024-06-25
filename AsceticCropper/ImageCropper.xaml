@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Grid
+    x:Class="Maui.AsceticCropper.ImageCropperView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ff="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Compat.Maui"
+    xmlns:ui="clr-namespace:Maui.AsceticCropper">
+    <ff:CachedImage
+        x:Name="image"
+        Aspect="AspectFit"
+        HorizontalOptions="Fill"
+        Success="CachedImage_Success"
+        VerticalOptions="Fill" />
+
+    <ui:CropperControl
+        x:Name="frame"
+        AnchorX=".5"
+        AnchorY=".5"
+        BackgroundColor="#B3222222"
+        BorderColor="BurlyWood"
+        BorderWidth="5"
+        HorizontalOptions="Fill"
+        VerticalOptions="Fill" />
+
+    <ContentView
+        AnchorX=".5"
+        AnchorY=".5"
+        HorizontalOptions="Fill"
+        VerticalOptions="Fill">
+        <ContentView.GestureRecognizers>
+            <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated" />
+            <PinchGestureRecognizer PinchUpdated="PinchGestureRecognizer_PinchUpdated" />
+        </ContentView.GestureRecognizers>
+    </ContentView>
+</Grid>

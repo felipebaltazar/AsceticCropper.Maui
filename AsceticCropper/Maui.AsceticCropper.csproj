@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0-android;net8.0-ios</TargetFrameworks>
+    <SingleProject>true</SingleProject>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Maui.AsceticCropper</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <UseMaui>true</UseMaui>
+    <ImplicitUsings>true</ImplicitUsings>
+    <Version>0.0.5-pre</Version>
+    <PackageId>AsceticCropper.Maui</PackageId>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition=" '$(Configuration)'=='Release' ">
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+  
+ <ItemGroup>
+    <None Include="build\*.targets" Pack="True" PackagePath="buildTransitive" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FFImageLoadingCompat.Maui" Version="0.1.1" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="all" />
+    <PackageReference Include="NGraphics" Version="0.5.0" />
+    <PackageReference Update="Nerdbank.GitVersioning" Version="3.6.133" />
+    <MauiXaml Update="ImageCropper.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+  </ItemGroup>
+  
+  
+</Project>
