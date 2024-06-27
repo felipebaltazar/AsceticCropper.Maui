@@ -5,6 +5,39 @@ Thanks to the Original Authors: jocontacter.
 
 ![](https://img.shields.io/github/v/tag/jocontacter/asceticcropper.svg) ![](https://img.shields.io/github/issues/jocontacter/asceticcropper.svg)
 
+## Getting started
+
+- Install the AsceticCropper.Maui package
+
+ ```
+ Install-Package AsceticCropper.Maui
+ ```
+
+- Add AsceticCropper.Maui declaration to your MauiAppBuilder
+
+```csharp
+public static class MauiProgram
+{
+	public static MauiApp CreateMauiApp()
+	{
+		var builder = MauiApp.CreateBuilder();
+		builder
+			.UseMauiApp<App>()
+			.UseAsceticCropper()
+			.ConfigureFonts(fonts =>
+			{
+				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+			});
+
+		return builder.Build();
+	}
+}
+```
+
+## Demo
+
+
 ![](https://jocontacter.github.io/asceticcropper/Images/scr1.png)|![](https://jocontacter.github.io/asceticcropper/Images/scr2.png)|![](https://jocontacter.github.io/asceticcropper/Images/scr3.png)
 -|-|-
 
