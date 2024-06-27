@@ -3,7 +3,10 @@ Forked from the amazingly popular original [asceticcropper](https://github.com/j
 
 Thanks to the Original Authors: jocontacter.
 
-![](https://img.shields.io/github/v/tag/jocontacter/asceticcropper.svg) ![](https://img.shields.io/github/issues/jocontacter/asceticcropper.svg)
+
+ [![NuGet](https://img.shields.io/nuget/v/AsceticCropper.Maui.svg)](https://www.nuget.org/packages/AsceticCropper.Maui/)
+
+ ![](https://img.shields.io/github/issues/felipebaltazar/asceticcropper.maui.svg)
 
 ## Getting started
 
