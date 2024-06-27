@@ -22,10 +22,11 @@ using RadialGradientBrush = NGraphics.RadialGradientBrush;
 using LinearGradientBrush = NGraphics.LinearGradientBrush;
 using GradientStop = NGraphics.GradientStop;
 using TextAlignment = NGraphics.TextAlignment;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+
 
 
 #if ANDROID
-using Microsoft.Maui.Controls.Handlers.Compatibility;
 using Android.Graphics;
 using Android.Runtime;
 using Android.Views;
@@ -38,7 +39,6 @@ using Foundation;
 using ImageIO;
 using UIKit;
 using CoreGraphics;
-using Microsoft.Maui.Controls.Compatibility.Platform.iOS;
 #endif
 
 
@@ -470,10 +470,10 @@ public class NControlViewRenderer : VisualElementRenderer<NControlView>
         {
             e.NewElement.OnInvalidate += HandleInvalidate;
 
-            if ((null == _gestureRecognizer) && (null != NativeView))
+            if ((null == _gestureRecognizer) && (null != Superview))
             {
-                _gestureRecognizer = new UITouchesGestureRecognizer(e.NewElement, NativeView);
-                NativeView.AddGestureRecognizer(_gestureRecognizer);
+                _gestureRecognizer = new UITouchesGestureRecognizer(e.NewElement, Superview);
+                Superview.AddGestureRecognizer(_gestureRecognizer);
             }
 
             e.NewElement.OnGetPlatform += OnGetPlatformHandler;
@@ -1060,7 +1060,8 @@ public class CGContextCanvas : ICanvas
         if (pen == null && brush == null)
             return;
 
-        DrawElement(() => {
+        DrawElement(() =>
+        {
 
             var bb = new BoundingBoxBuilder();
 
@@ -1170,7 +1171,8 @@ public class CGContextCanvas : ICanvas
         if (pen == null && brush == null)
             return;
 
-        DrawElement(() => {
+        DrawElement(() =>
+        {
             if (corner.Width > 0 || corner.Height > 0)
             {
                 AddRoundedRect(Conversions.GetCGRect(frame), Conversions.GetCGSize(corner));
@@ -1187,7 +1189,8 @@ public class CGContextCanvas : ICanvas
         if (pen == null && brush == null)
             return;
 
-        DrawElement(() => {
+        DrawElement(() =>
+        {
             context.AddEllipseInRect(Conversions.GetCGRect(frame));
             return frame;
         }, pen, brush);
